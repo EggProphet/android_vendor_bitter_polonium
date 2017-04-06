@@ -180,8 +180,13 @@ def add_to_manifest(repositories, fallback_branch = None):
             continue
 
         print('Adding dependency: EggProphet/%s -> %s' % (repo_name, repo_target))
-        project = ElementTree.Element("project", attrib = { "path": repo_target,
-            "remote": "github", "name": "EggProphet/%s" % repo_name })
+        
+        if repo_name == 'android_device_samsung_klte' or repo_name == 'android_device_samsung_klte-common' or repo_name == 'android_kernel_samsung_klte':
+            project = ElementTree.Element("project", attrib = { "path": repo_target,
+                "remote": "github", "revision": "refs/heads/bp-14.1", "name": "EggProphet/%s" % repo_name })
+        else:
+            project = ElementTree.Element("project", attrib = { "path": repo_target,
+                "remote": "github", "name": "LineageOS/%s" % repo_name })
 
         if 'branch' in repository:
             project.set('revision',repository['branch'])
@@ -304,4 +309,4 @@ else:
             print("Done")
             sys.exit()
 
-print("Repository for %s not found in the EggProphet Github repository list. If this is in error, you may need to manually add it to your local_manifests/roomservice.xml." % device)
+print("Repository for %s not found in the Bitter Polonium Github repository list. If this is in error, you may need to manually add it to your local_manifests/roomservice.xml." % device)
