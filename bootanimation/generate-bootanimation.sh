@@ -14,12 +14,12 @@ fi
 RESOLUTION=""$WIDTH"x"$HEIGHT""
 
 mkdir -p $ANDROID_PRODUCT_OUT/obj/BOOTANIMATION/bootanimation/part0
-tar xfp "vendor/cm/bootanimation/bootanimation.tar" -C "$OUT/bootanimation/"
+tar xfp "vendor/bitter-polonium/bootanimation/bootanimation.tar" -C "$OUT/bootanimation/"
 mogrify -resize $RESOLUTION -colors 250 -background white -gravity center -extent $RESOLUTION "$OUT/bootanimation/"*"/"*".png"
 
 # Create desc.txt
 echo "$WIDTH $HEIGHT" 60 > "$OUT/bootanimation/desc.txt"
-cat "vendor/cm/bootanimation/desc.txt" >> "$OUT/bootanimation/desc.txt"
+cat "vendor/bitter-polonium/bootanimation/desc.txt" >> "$OUT/bootanimation/desc.txt"
 
 # Create bootanimation.zip
 cd "$OUT/bootanimation"
