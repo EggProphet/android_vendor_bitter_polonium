@@ -1,4 +1,4 @@
-# Permissions for bitter-poloniumsdk services
+# Permissions for cmsdk services
 PRODUCT_COPY_FILES += \
     vendor/bitter-polonium/config/permissions/org.cyanogenmod.appsuggest.xml:system/etc/permissions/org.cyanogenmod.appsuggest.xml \
     vendor/bitter-polonium/config/permissions/org.cyanogenmod.audio.xml:system/etc/permissions/org.cyanogenmod.audio.xml \
